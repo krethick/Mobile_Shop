@@ -11,12 +11,10 @@ export default function App() {
   return (
     <MDBNavbar light bgColor='light'>
       <MDBContainer fluid>
-        <MDBNavbarBrand>Navbar</MDBNavbarBrand>
-        <MDBInputGroup tag="form" className='d-flex w-auto mb-3'>
-          <input className='form-control' placeholder="Type query" aria-label="Search" type='Search' />
-          <MDBBtn outline>Search</MDBBtn>
-        </MDBInputGroup>
-      </MDBContainer>
+         <MDBNavbarBrand>Navbar</MDBNavbarBrand>
+            <span>All Product</span>
+            <MDBBtn color="dark">Cart(0)</MDBBtn>
+        </MDBContainer>
     </MDBNavbar>
   );
 }
