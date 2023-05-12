@@ -10,29 +10,37 @@ import {
   MDBRow,
   MDBCol,
 } from 'mdb-react-ui-kit';
+import { useSelector } from "react-redux";
+
 
 export default function App() {
+
+  //const items: any[] = useSelector((state: any) => state.allCart.items);
+  const items = useSelector((state:any) => state.allCart.items);
+
   return (
     <div className="m-2">
-       <MDBContainer>
-       <MDBRow className='mb-3'>
-       <MDBCol size='4'>
-      <MDBCard>
-        <MDBCardImage
-      src='https://mdbootstrap.com/img/new/standard/nature/184.webp'
-      position='top'
-      alt='...' />
-      <MDBCardBody>
-        <MDBCardTitle>Card title</MDBCardTitle>
-        <MDBCardText>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
-        </MDBCardText>
-        <MDBBtn href='#'>Button</MDBBtn>
-      </MDBCardBody>
-    </MDBCard>
-    </MDBCol>
-    </MDBRow>
-    </MDBContainer>
+      <MDBContainer>
+        <MDBRow className='mb-3'>
+          {items.map((item: any) => (
+            <MDBCol key={item.id} size='md'>
+              <MDBCard>
+                <MDBCardImage
+                  src={item.img}
+                  position='top'
+                  alt='...' />
+                <MDBCardBody>
+                  <MDBCardTitle>{item.title}</MDBCardTitle>
+                  <MDBCardText>
+                      ${item.price}
+                  </MDBCardText>
+                  <MDBBtn href='#'>Add to Cart</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          ))}
+        </MDBRow>
+      </MDBContainer>
     </div>
   );
 }
