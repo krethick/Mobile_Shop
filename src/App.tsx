@@ -1,15 +1,21 @@
-import React from 'react';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 import Navbar from "./components/Navbar";
 import ProductCard from "./components/ProductCard";
+import CartPage from "./components/cartPage";
 
 function App() {
-   return (
-     <div>
-         <Navbar />
-         <ProductCard />
-     </div>
-     );
-  }
+  return (
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route  path="/" element={<ProductCard />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+}
 
 export default App;
